@@ -8,12 +8,12 @@ const Discover = () => {
   const router = useRouter();
   const topic = router.asPath.split('/')[2];
   const activeTopicStyle =
-    'xl:border-2 hover:bg-primary xl:border-[#EA5666] px-3 py-2 rounded- xl:rounded-full flex items-center gap-2 justify-center cursor-pointer font-semibold text-[#EA5666] xl:text-[#EA5666]';
+    'xl:border-2 hover:bg-primary xl:border-[#EA5666] px-3 py-2 rounded xl:rounded-md flex items-center gap-2 justify-center cursor-pointer font-semibold text-[#EA5666] xl:text-[#EA5666]';
   const topicStyle =
-    'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#EA5666] rounded';
+    'flex items-center gap-3 hover:bg-primary p-4 justify-center xl:justify-start cursor-pointer font-semibold text-[#EA5666] rounded';
 
   return (
-    <div className="xl:border-b-2 xl:border-gray-200 pb-6">
+    <div className="xl:border-b-2 xl:border-gray-200 pb-6 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Popular Topics</p>
       <div className="flex gap-3 flex-wrap">
         {topics.map((item) => (
