@@ -8,7 +8,7 @@ const Discover = () => {
   const router = useRouter();
   const topic = router.asPath.split('/')[2];
   const activeTopicStyle =
-    'xl:border-2 hover:bg-primary xl:border-[#EA5666] px-3 py-2 rounded xl:rounded-md flex items-center gap-2 justify-center cursor-pointer font-semibold text-[#EA5666] xl:text-[#EA5666]';
+    'flex items-center  justify-center xl:border-2 border-2 xl:border-[#EA5666] border-[#EA5666]  hover:bg-primary gap-2 p-4 rounded xl:rounded-md  cursor-pointer font-semibold text-[#EA5666] xl:text-[#EA5666]';
   const topicStyle =
     'flex items-center gap-3 hover:bg-primary p-4 justify-center xl:justify-start cursor-pointer font-semibold text-[#EA5666] rounded';
 
