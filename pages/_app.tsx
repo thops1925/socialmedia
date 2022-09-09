@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app';
 import '../styles/globals.css';
 
 import { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import SideBar from '../components/SideBar';
+import SideBar from '../components/navbar/SideBar';
+import Navbar from '../components/navbar/Navbar';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [ssr, setSsr] = useState(true);

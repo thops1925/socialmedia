@@ -33,7 +33,7 @@ const SideBar = () => {
           </div>
           {!userProfile && (
             <div className="px-2 py-4 hidden xl:block">
-              <p className="text-gray-400">Login to like and comment on video</p>
+              <p className="text-gray-500">Login to like and comment on video</p>
               <div className="pr-4">
                 <GoogleLogin
                   render={(renderProps) => (
