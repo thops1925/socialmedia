@@ -9,9 +9,8 @@ import Image from 'next/image';
 
 interface IProps {
   post: video;
-  key: string;
 }
-const VideoCard: NextPage<IProps> = ({ post, key }) => {
+const VideoCard: NextPage<IProps> = ({ post }) => {
   const [isHover, setIsHover] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);

@@ -1,10 +1,12 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import { useEffect, useState } from 'react';
 import SideBar from '../components/navbar/SideBar';
 import Navbar from '../components/navbar/Navbar';
+import { Provider } from 'react-redux';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [ssr, setSsr] = useState(true);
@@ -12,7 +14,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   if (ssr) null;
 
   return (
-    <div>
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_SANITY_GOOGLE_CLIENT_ID}`}>
       <Navbar />
       <div className="flex gap-6 md:gap-20">
         <div className="h-[94vh] overflow-hidden xl:hover:overflow-auto">
@@ -22,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </div>
       </div>
-    </div>
+    </GoogleOAuthProvider>
   );
 };
 

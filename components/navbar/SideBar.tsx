@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 import Discover from './Discover';
@@ -34,7 +34,7 @@ const SideBar = () => {
           {!userProfile && (
             <div className="px-2 py-4 hidden xl:block">
               <p className="text-gray-500">Login to like and comment on video</p>
-              <div className="pr-4">
+              {/* <div className="pr-4">
                 <GoogleLogin
                   render={(renderProps) => (
                     <button
@@ -51,7 +51,7 @@ const SideBar = () => {
                   onFailure={() => {}}
                   cookiePolicy={'single_host_origin'}
                 />
-              </div>
+              </div> */}
             </div>
           )}
           <Discover />
