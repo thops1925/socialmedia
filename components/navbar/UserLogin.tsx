@@ -23,13 +23,13 @@ const UserLogin = () => {
       {userAdd ? (
         <div className="flex gap-5 md:gap-10">
           {userAdd?.image && (
-            <Link href="/profile">
+            <Link href={`/profile/${userAdd._id}`}>
               <div className="w-10 h-10 md:w-12 md:h-12">
                 <Image alt="profile" width={40} height={40} className="rounded-full cursor-pointer " src={userAdd.image} />
               </div>
             </Link>
           )}
-          <Link href="/upload">
+          <Link href="upload">
             <button className=" md:px-4 text-md font-semibold flex items-center gap-2">
               <AiOutlineUpload className="text-2xl" />
               <span className="hidden md:block">Upload</span>

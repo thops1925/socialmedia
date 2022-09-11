@@ -31,9 +31,9 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex h-full w-full">
-      <div className="rounded-lg">
-        <div>
+    <div className="flex h-full w-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-slate-300 justify-center">
+      <div className="rounded-lg bg-white xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+        <div className="">
           <div>
             <p className="text-2xl font-bold">Upload Video</p>
             <p className="text-md text-gray-400 mt-1">Post a video to your account</p>
@@ -69,6 +69,9 @@ const Upload = () => {
         </div>
         <div className="flex flex-col gap-3 pb-10 ">
           <label className="text-md font-medium"> Caption</label>
+          <input type="text" value="" onChange={() => {}} className="border-2 border-gray-200 rounded-lg p-2 outline-none text-md" />
+          <label className="text-md font-medium">Choose Category</label>
+          <select onChange={() => {}}></select>
         </div>
       </div>
     </div>
