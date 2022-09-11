@@ -6,6 +6,7 @@ import { userDetail } from '../Type/userDetail';
 const authStore = (set: any) => ({
   userProfile: null as userDetail | null,
   setUser: (user: userDetail) => set({ userProfile: user }),
+  removeUser: () => set({ userProfile: null }),
 });
 
 const useAuthStore = create(persist(authStore, { name: 'authStore' }));

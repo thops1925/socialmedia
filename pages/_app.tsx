@@ -6,7 +6,6 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useEffect, useState } from 'react';
 import SideBar from '../components/navbar/SideBar';
 import Navbar from '../components/navbar/Navbar';
-import { Provider } from 'react-redux';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [ssr, setSsr] = useState(true);

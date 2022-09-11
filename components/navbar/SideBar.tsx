@@ -13,7 +13,7 @@ const SideBar = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(true);
   const normalLink =
     'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#EA5666] rounded';
-  const userProfile = false;
+  // const userProfile = false;
   return (
     <div>
       <div className="block xl:hidden m-2 ml-4 mt-3 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
@@ -31,10 +31,10 @@ const SideBar = () => {
               </div>
             </Link>
           </div>
-          {!userProfile && (
+          {/* {!userProfile && (
             <div className="px-2 py-4 hidden xl:block">
               <p className="text-gray-500">Login to like and comment on video</p>
-              {/* <div className="pr-4">
+              <div className="pr-4">
                 <GoogleLogin
                   render={(renderProps) => (
                     <button
@@ -51,9 +51,9 @@ const SideBar = () => {
                   onFailure={() => {}}
                   cookiePolicy={'single_host_origin'}
                 />
-              </div> */}
+              </div>
             </div>
-          )}
+          )} */}
           <Discover />
           <SuggestedAccounts />
           <SideBarFooter />
