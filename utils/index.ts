@@ -1,5 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { BASE_URL } from '../pages/api/post';
 import { decodeCredential } from '../Type/GoogleLogIn';
 
 export const createOrGetUser = async (response: any, setUser: any) => {
@@ -13,5 +14,5 @@ export const createOrGetUser = async (response: any, setUser: any) => {
     image: picture,
   };
   setUser(user);
-  await axios.post(`http://localhost:3000/api/auth`, user);
+  await axios.post(`${BASE_URL}/api/auth`, user);
 };

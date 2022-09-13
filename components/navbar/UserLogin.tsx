@@ -19,8 +19,10 @@ const UserLogin = () => {
   }, [userProfile]);
 
   return (
-    <div>
-      {userAdd ? (
+    <>
+      {userAdd === null && <GoogleLogin onSuccess={(credentialResponse) => createOrGetUser(credentialResponse, setUser)} />}
+
+      {userAdd && (
         <div className="flex gap-5 md:gap-10">
           {userAdd?.image && (
             <Link href={`/profile/${userAdd._id}`}>
@@ -45,10 +47,8 @@ const UserLogin = () => {
             <FiLogOut className="text-2xl" />
           </button>
         </div>
-      ) : (
-        <GoogleLogin onSuccess={(credentialResponse) => createOrGetUser(credentialResponse, setUser)} />
       )}
-    </div>
+    </>
   );
 };
 
