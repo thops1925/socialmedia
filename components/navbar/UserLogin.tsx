@@ -8,10 +8,11 @@ import { FiLogOut } from 'react-icons/fi';
 import useAuthStore from '../../store/authStore';
 import { userDetail } from '../../Type/userDetail';
 import { createOrGetUser } from '../../utils';
+import { useRouter } from 'next/router';
 
 const UserLogin = () => {
   const [userAdd, setAddUser] = useState<userDetail | null>();
-
+  const router = useRouter();
   const { userProfile, setUser, removeUser } = useAuthStore();
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const UserLogin = () => {
             onClick={() => {
               googleLogout();
               removeUser();
+              router.push('/');
             }}
           >
             <FiLogOut className="text-2xl" />

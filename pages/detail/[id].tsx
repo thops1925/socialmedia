@@ -37,9 +37,21 @@ const Detail: NextPage<IProps> = ({ postDetails }) => {
   useEffect(() => {
     attemptPlay();
   }, []);
+
   useEffect(() => {
     setAddUser(userProfile);
   }, [userProfile]);
+
+  const handleLike = async (like: boolean) => {
+    if (userProfile) {
+      const res = await axios.put(`${BASE_URL}/api/like`, {
+        userId: userProfile._id,
+        postId: post._id,
+        like,
+      });
+      setPost({ ...post, likes: res.data.likes });
+    }
+  };
 
   return (
     <div className="flex w-screen absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
@@ -76,7 +88,9 @@ const Detail: NextPage<IProps> = ({ postDetails }) => {
             </div>
           </div>
           <p className="px-10 text-gray-700 text-lg ">{post.caption}</p>
-          <div className="mt-10 px-10 ">{userAdd && <LikeButton />}</div>
+          <div className="mt-10 px-10 ">
+            {userAdd && <LikeButton likes={post.likes} handleLike={() => handleLike(true)} handleDislike={() => handleLike(false)} />}
+          </div>
           <CommentSection />
         </div>
       </div>
