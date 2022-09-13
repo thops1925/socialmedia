@@ -15,15 +15,18 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const vidRef = useRef<HTMLVideoElement>(null);
-  const onVideoClick = () => {
-    if (isPlaying) {
-      vidRef.current?.pause();
-      setIsPlaying(false);
-    } else {
-      vidRef.current?.play();
-      setIsPlaying(true);
-    }
-  };
+
+  // const onVideoClick = () => {
+  //   vidRef &&
+  //     vidRef.current &&
+  //     vidRef.current.play().catch((error) => {
+  //       console.error('Error attempting to play', error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   onVideoClick();
+  // }, [vidRef]);
 
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">
