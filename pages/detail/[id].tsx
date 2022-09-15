@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { NextPage } from 'next';
 import React, { useState, useEffect, useRef } from 'react';
 import { video } from '../../Type/videoProps';
 import { BASE_URL } from '../api/post';
@@ -18,9 +17,10 @@ interface IProps {
   postDetails: video;
 }
 
-const Detail: NextPage<IProps> = ({ postDetails }) => {
+const Detail = ({ postDetails }: IProps) => {
   const [userAdd, setAddUser] = useState<userDetail | null>();
-
+  const [comment, setComment] = useState<string>('');
+  const [isPostingComment, setIsPostingComment] = useState<boolean>(false);
   const [post, setPost] = useState<video>(postDetails);
   const router = useRouter();
   const videoEl = useRef<HTMLVideoElement>(null);
@@ -44,31 +44,51 @@ const Detail: NextPage<IProps> = ({ postDetails }) => {
 
   const handleLike = async (like: boolean) => {
     if (userProfile) {
-      const res = await axios.put(`${BASE_URL}/api/like`, {
+      const { data } = await axios.put(`${BASE_URL}/api/like`, {
         userId: userProfile._id,
         postId: post._id,
         like,
       });
-      setPost({ ...post, likes: res.data.likes });
+      setPost({ ...post, likes: data.likes });
     }
   };
+
+  const addComment = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    if (userProfile) {
+      if (comment) {
+        setIsPostingComment(true);
+        const { data } = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
+          userId: userProfile._id,
+          comment,
+        });
+
+        setPost({ ...post, comments: data.comments });
+        setComment('');
+        setIsPostingComment(false);
+      }
+    }
+  };
+  console.log(post);
+  if (!post) return null;
 
   return (
     <div className="flex w-screen absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
       <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-black">
         <div className="opacity-90 absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
-          <p className="cursor-pointer " onClick={() => router.back()}>
+          <p className="cursor-pointer " onClick={() => router.push('/')}>
             <MdOutlineCancel className="text-white text-[35px] hover:opacity-90" />
           </p>
         </div>
         <div className="relative">
           <div className="lg:h[100vh] h-screen ">
-            <video src={post.video.asset.url} playsInline loop muted controls ref={videoEl} className="w-full h-full cursor-pointer"></video>
+            <video src={post?.video.asset.url} playsInline loop muted controls ref={videoEl} className="w-full h-full cursor-pointer"></video>
           </div>
         </div>
       </div>
       <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
-        <div className="lg:mt-20 mt-10">
+        <div className="lg:mt-10 mt-10">
           <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
             <div className="md:w-20 md:20 w-16 h-10 ml-4">
               <Link href="/">
@@ -91,7 +111,13 @@ const Detail: NextPage<IProps> = ({ postDetails }) => {
           <div className="mt-10 px-10 ">
             {userAdd && <LikeButton likes={post.likes} handleLike={() => handleLike(true)} handleDislike={() => handleLike(false)} />}
           </div>
-          <CommentSection />
+          <CommentSection
+            setComment={setComment}
+            addComment={addComment}
+            comment={comment}
+            isPostingComment={isPostingComment}
+            comments={post.comments}
+          />
         </div>
       </div>
     </div>

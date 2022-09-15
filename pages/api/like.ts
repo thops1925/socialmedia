@@ -8,19 +8,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const data = like
       ? await client
-          .patch(postId)
-          .setIfMissing({ likes: [] })
+          .patch(postId) // The ID of the document to patch.
+          .setIfMissing({ likes: [] }) // If the document doesn't exist, create it with an empty array for the likes field.
           .insert('after', 'likes[-1]', [
+            // Insert a new like at the end of the likes array.
             {
               _key: uuid(),
               _ref: userId,
             },
           ])
-          .commit()
+          .commit() // commit the transaction
       : await client
-          .patch(postId)
-          .unset([`likes[_ref=="${userId}"]`])
-          .commit();
+          .patch(postId) // postId is the id of the post
+          .unset([`likes[_ref=="${userId}"]`]) // unset is a method that removes a field from a document
+          .commit(); // commit is a method that commits the changes to the database
 
     res.status(200).json(data);
   }

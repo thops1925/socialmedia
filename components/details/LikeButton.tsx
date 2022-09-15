@@ -30,7 +30,7 @@ const LikeButton = ({ handleDislike, handleLike, likes }: IProps) => {
   }, [userProfile]);
 
   return (
-    <div className="gap-6">
+    <div className="flex gap-6">
       <div className="mt-4 flex flex-col justify-center items-center cursor-pointer">
         {alreadyLink ? (
           <div className="bg-primary rounded-full p-2 md:p-4 text-[#EA5666]" onClick={handleDislike}>

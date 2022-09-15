@@ -8,7 +8,6 @@ import { topics } from '../utils/constants';
 import useAuthStore from '../store/authStore';
 import { BASE_URL } from './api/post';
 import { userDetail } from '../Type/userDetail';
-import { redirect } from 'next/dist/server/api-utils';
 
 const Upload = () => {
   const router = useRouter();
@@ -22,7 +21,6 @@ const Upload = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [videoAsset, setVideoAsset] = useState<SanityAssetDocument | undefined>();
   const [WrongFileType, setWrongFileType] = useState<boolean>(false);
-  console.log(videoAsset);
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
