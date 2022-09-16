@@ -6,7 +6,6 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import VideoCard from '../../components/video/VideoCard';
 import { GoVerified } from 'react-icons/go';
 import useAuthStore from '../../store/authStore';
 import LikeButton from '../../components/details/LikeButton';
@@ -70,7 +69,6 @@ const Detail = ({ postDetails }: IProps) => {
       }
     }
   };
-  console.log(post);
   if (!post) return null;
 
   return (

@@ -5,7 +5,7 @@ import { topics } from '../../utils/constants';
 
 const Discover = () => {
   const router = useRouter();
-  const topic = router.asPath.split('/')[2];
+  const topic = router.asPath.split('/')[2]; // get the topic from the url
   const activeTopicStyle =
     'flex items-center justify-center xl:border-2 border-2 xl:border-[#EA5666] border-[#EA5666]  hover:bg-primary gap-2 p-3 rounded xl:rounded-md cursor-pointer font-semibold text-[#EA5666] xl:text-[#EA5666]';
   const topicStyle =
