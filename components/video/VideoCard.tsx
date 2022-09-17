@@ -10,19 +10,18 @@ interface IProps {
 }
 const VideoCard: NextPage<IProps> = ({ post }) => {
   const vidRef = useRef<HTMLVideoElement>(null);
-
   return (
-    <div className="flex flex-col border-b-2 border-gray-200 pb-6">
+    <div className="flex flex-col border-b-2 border-gray-200  border-2 rounded-md">
       <div>
-        <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
-          <div className="md:w-16 md:16 w-10 h-10">
-            <Link href="/">
-              <Image layout="responsive" alt="profile" width={62} height={62} className="rounded-full" src={post.postedBy?.image} />
+        <div className="flex gap-3 p-2 border-b-2 mb-2 cursor-pointer font-semibold rounded">
+          <div className="md:w-16 md:16 border-2 justify-center border-blue-600 rounded-full">
+            <Link href={`/profile/${post._id}`}>
+              <Image layout="responsive" alt="profile" width={50} height={50} className="rounded-full" src={post.postedBy?.image} />
             </Link>
           </div>
           <div>
-            <Link href="/">
-              <div className="flex items-center gap-2">
+            <Link href={`/profile/${post.postedBy._id}`}>
+              <div className="flex flex-col gap-2">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}
                   <GoVerified className="text-[#EA5666] text-md" />
@@ -34,7 +33,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         </div>
       </div>
 
-      <div className="lg:ml-20 flex gap-4  relative ">
+      <div className="flex justify-center item-center relative">
         <div>
           <Link href={`/detail/${post._id}`}>
             <video
@@ -42,7 +41,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
               controls
               muted
               ref={vidRef}
-              className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-200 rounded-2xl  cursor-pointer bg-gray-200 m-auto"
+              className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px] w-300 rounded-2xl  cursor-pointer bg-black m-auto "
               src={post.video.asset.url}
             ></video>
           </Link>

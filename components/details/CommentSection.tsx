@@ -1,6 +1,10 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
+import { GoVerified } from 'react-icons/go';
 import useAuthStore from '../../store/authStore';
 import { userDetail } from '../../Type/userDetail';
+import SuggestedAccounts from '../navbar/SuggestedAccounts';
 import NoResults from '../video/NoResults';
 
 interface IProps {
@@ -24,7 +28,7 @@ interface Icomments {
 const CommentSection = ({ comment, comments, setComment, addComment, isPostingComment }: IProps) => {
   const [userAdd, setAddUser] = React.useState<userDetail | null>();
 
-  const { userProfile } = useAuthStore();
+  const { userProfile, allUsers } = useAuthStore();
 
   React.useEffect(() => {
     setAddUser(userProfile);
@@ -32,7 +36,44 @@ const CommentSection = ({ comment, comments, setComment, addComment, isPostingCo
 
   return (
     <div className="border-t-2 border-gray-200 pt-4 px-10 bg-[F8F8F8] border-b-2 lg:pb-0  pb-[100px]">
-      <div className="overflow-scroll lg:h-[475px]">{comments?.length ? <div>video</div> : <NoResults text="Empty Comments" />}</div>
+      <div className="overflow-scroll lg:h-[475px]">
+        {comments?.length ? (
+          <div>
+            {comments.map((comment, idx) => (
+              <>
+                {allUsers.map(
+                  (item) =>
+                    item._id === (comment.postedBy._id || comment.postedBy._ref) && (
+                      <div className="p-2 items-center cursor-pointer" key={idx}>
+                        <Link href={`/profile/${item._id}`}>
+                          <div className="flex gap-3 items-center">
+                            <div className="w-8 h-8">
+                              <Image src={item.image} alt="user" className=" rounded-full" height={34} width={34} layout="responsive" />
+                            </div>
+                            <div className="hidden xl:block">
+                              <p className="flex gap-1 items-center text-md font-bold text-primary lowercase ">
+                                {item.userName.replaceAll(' ', '')}
+                                <GoVerified className="text-blue-400" />
+                              </p>
+                              {/* <p>
+                                <span className="text-gray-400 capitalize text-xs">{item.userName}</span>
+                              </p> */}
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="flex items-center w-auto mx-2 my-5">
+                          <p className="text-gray-500 text-sm">{comment.comment}</p>
+                        </div>
+                      </div>
+                    )
+                )}
+              </>
+            ))}
+          </div>
+        ) : (
+          <NoResults text="Empty Comments" />
+        )}
+      </div>
       {userAdd && (
         <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10 m-auto">
           <form onSubmit={addComment} className="flex gap-4">

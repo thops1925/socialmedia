@@ -14,14 +14,14 @@ const SuggestedAccounts = () => {
   }, [fetchaAllusers, userProfile]);
   if (!user) return null;
   return (
-    <div className="xl:border-b-2">
+    <div className="xl:border-b-2 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Suggested Accounts</p>
       <div className="flex flex-col items-start justify-center">
         {allUsers.slice(0, 6).map((user) => (
           <Link href={`/profile/${user._id}`} key={user._id}>
             <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
-              <div className="w-8 h-8">
-                <Image src={user.image} alt="user" className=" rounded-full" height={34} width={34} layout="responsive" />
+              <div className="w-8 h-8 border-2 border-blue-600 rounded-full">
+                <Image src={user.image} alt="user" className=" rounded-full" height={120} width={120} layout="responsive" />
               </div>
               <div className="hidden xl:block">
                 <p className="flex gap-1 items-center text-md font-bold text-primary lowercase ">

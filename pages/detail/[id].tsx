@@ -72,7 +72,7 @@ const Detail = ({ postDetails }: IProps) => {
   if (!post) return null;
 
   return (
-    <div className="flex w-screen absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
+    <div className="flex w-screen absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap z-10">
       <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-black">
         <div className="opacity-90 absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
           <p className="cursor-pointer " onClick={() => router.push('/')}>
