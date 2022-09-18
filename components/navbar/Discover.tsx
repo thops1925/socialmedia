@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { topics } from '../../utils/constants';
+import axios from 'axios';
 
 const Discover = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const Discover = () => {
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Popular Topics</p>
       <div className="flex gap-3 flex-wrap">
         {topics.map((item) => (
-          <Link href={`/?topic/${item.name}`} key={item.name}>
+          <Link href={`/?topic=${item.name}`} key={item.name}>
             <div className={topic === item.name ? activeTopicStyle : topicStyle}>
               <span className="font-bold text-2xl xl:text-md">{item.icon}</span>
               <span className="font-medium text-md hidden xl:block ">{item.name}</span>
@@ -27,4 +28,11 @@ const Discover = () => {
   );
 };
 
+// export const getStaticProps = async () => {
+//   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/topics`);
+//   return {
+//     props: {
+//       topics,
+//     },
+//   };
 export default Discover;

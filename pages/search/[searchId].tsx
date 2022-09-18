@@ -39,9 +39,9 @@ const Search = ({ videos }: { videos: video[] }) => {
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: userDetail, idx: number) => (
               <Link key={idx} href={`/profile/${user._id}`}>
-                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200">
-                  <div>
-                    <Image width={50} height={50} className="rounded-full" alt="user-profile" src={user.image} />
+                <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-100">
+                  <div className="border-2 border-blue-500 rounded-full w-12 h-12">
+                    <Image width={120} height={120} className="rounded-full" alt="user-profile" src={user.image} />
                   </div>
                   <div>
                     <div>
