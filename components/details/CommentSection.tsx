@@ -4,7 +4,6 @@ import React from 'react';
 import { GoVerified } from 'react-icons/go';
 import useAuthStore from '../../store/authStore';
 import { userDetail } from '../../Type/userDetail';
-import SuggestedAccounts from '../navbar/SuggestedAccounts';
 import NoResults from '../video/NoResults';
 
 interface IProps {

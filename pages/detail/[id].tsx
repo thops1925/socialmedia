@@ -111,6 +111,7 @@ const Detail = ({ postDetails }: IProps) => {
           <div className="mt-10 px-10 ">
             {userAdd && <LikeButton likes={post.likes} handleLike={() => handleLike(true)} handleDislike={() => handleLike(false)} />}
           </div>
+
           <CommentSection
             setComment={setComment}
             addComment={addComment}
