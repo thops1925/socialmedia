@@ -21,7 +21,9 @@ const SuggestedAccounts = () => {
           <Link href={`/profile/${user._id}`} key={user._id}>
             <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
               <div className="w-8 h-8 border-2 border-blue-600 rounded-full">
-                <Image src={user.image} alt="user" className=" rounded-full" height={120} width={120} layout="responsive" />
+                <>
+                  <Image src={user.image} alt="user" className=" rounded-full" height={120} width={120} layout="responsive" />
+                </>
               </div>
               <div className="hidden xl:block">
                 <p className="flex gap-1 items-center text-md font-bold text-primary lowercase ">

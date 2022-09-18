@@ -48,16 +48,18 @@ const CommentSection = ({ comment, comments, setComment, addComment, isPostingCo
                         <Link href={`/profile/${item._id}`}>
                           <div className="flex gap-3 items-center">
                             <div className="w-8 h-8">
-                              <Image src={item.image} alt="user" className=" rounded-full" height={34} width={34} layout="responsive" />
+                              <>
+                                <Image src={item.image} alt="user" className=" rounded-full" height={34} width={34} layout="responsive" />
+                              </>
                             </div>
                             <div className="hidden xl:block">
                               <p className="flex gap-1 items-center text-md font-bold text-primary lowercase ">
                                 {item.userName.replaceAll(' ', '')}
                                 <GoVerified className="text-blue-400" />
                               </p>
-                              {/* <p>
+                              <p>
                                 <span className="text-gray-400 capitalize text-xs">{item.userName}</span>
-                              </p> */}
+                              </p>
                             </div>
                           </div>
                         </Link>

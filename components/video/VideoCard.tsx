@@ -1,22 +1,20 @@
 import { NextPage } from 'next';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { video } from '../../Type/videoProps';
 import { GoVerified } from 'react-icons/go';
 import Link from 'next/link';
 import Image from 'next/image';
 
-interface IProps {
-  post: video;
-}
-const VideoCard: NextPage<IProps> = ({ post }) => {
-  const vidRef = useRef<HTMLVideoElement>(null);
+const VideoCard = ({ post }: { post: video }) => {
   return (
     <div className="flex flex-col border-b-2 border-gray-200  border-2 rounded-md">
       <div>
         <div className="flex gap-3 p-2 border-b-2 mb-2 cursor-pointer font-semibold rounded">
-          <div className="md:w-16 md:16 border-2 justify-center border-blue-600 rounded-full">
+          <div className="md:w-16 md:16 w-16 h-16 border-2 justify-center border-blue-600 rounded-full">
             <Link href={`/profile/${post._id}`}>
-              <Image layout="responsive" alt="profile" width={50} height={50} className="rounded-full" src={post.postedBy?.image} />
+              <>
+                <Image layout="responsive" alt="profile" width={120} height={120} className="rounded-full" src={post.postedBy?.image} />
+              </>
             </Link>
           </div>
           <div>
@@ -40,7 +38,6 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
               loop
               controls
               muted
-              ref={vidRef}
               className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px] w-300 rounded-2xl  cursor-pointer bg-black m-auto "
               src={post.video.asset.url}
             ></video>

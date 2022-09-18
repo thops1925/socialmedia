@@ -41,7 +41,9 @@ const Search = ({ videos }: { videos: video[] }) => {
               <Link key={idx} href={`/profile/${user._id}`}>
                 <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-100">
                   <div className="border-2 border-blue-500 rounded-full w-12 h-12">
-                    <Image width={120} height={120} className="rounded-full" alt="user-profile" src={user.image} />
+                    <>
+                      <Image width={120} height={120} className="rounded-full" alt="user-profile" src={user.image} />
+                    </>
                   </div>
                   <div>
                     <div>

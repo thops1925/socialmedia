@@ -28,7 +28,9 @@ const UserLogin = () => {
           {userAdd?.image && (
             <Link href={`/profile/${userAdd._id}`}>
               <div className="w-10 h-10 md:w-12 md:h-12">
-                <Image alt="profile" width={120} height={120} className="rounded-full cursor-pointer " src={userAdd.image} />
+                <>
+                  <Image alt="profile" width={120} height={120} className="rounded-full cursor-pointer " src={userAdd.image} />
+                </>
               </div>
             </Link>
           )}

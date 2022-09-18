@@ -90,7 +90,9 @@ const Detail = ({ postDetails }: IProps) => {
           <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
             <div className="md:w-20 md:20 w-16 h-10 ml-4">
               <Link href="/">
-                <Image layout="responsive" alt="profile" width={62} height={62} className="rounded-full" src={post.postedBy.image} />
+                <>
+                  <Image layout="responsive" alt="profile" width={62} height={62} className="rounded-full" src={post.postedBy.image} />
+                </>
               </Link>
             </div>
             <div>

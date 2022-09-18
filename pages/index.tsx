@@ -5,11 +5,7 @@ import VideoCard from '../components/video/VideoCard';
 import NoResults from '../components/video/NoResults';
 import { BASE_URL } from './api/post';
 
-interface IProps {
-  videos: video[];
-}
-
-const Home: NextPage<IProps> = ({ videos }) => {
+const Home = ({ videos }: { videos: video[] }) => {
   return (
     <div className="flex  flex-col gap-10 video h-full">
       {videos.length ? videos.map((video: video) => <VideoCard post={video} key={video._id} />) : <NoResults text={'No videos'} />}
