@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const VideoCard = ({ post }: { post: video }) => {
   return (
-    <div className="flex flex-col border-b-2 border-gray-200  border-2 rounded-md">
+    <div className="flex flex-col border-b-2 border-gray-200 border-2 rounded-md ">
       <div>
         <div className="flex gap-3 p-2 border-b-2 mb-2 cursor-pointer font-semibold rounded">
           <div className="md:w-16 md:16 w-16 h-16 border-2 justify-center border-blue-600 rounded-full">
