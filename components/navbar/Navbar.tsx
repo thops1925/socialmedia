@@ -9,7 +9,7 @@ import SideBar from './SideBar';
 import { ImCancelCircle } from 'react-icons/im';
 import { AiOutlineMenu } from 'react-icons/ai';
 
-const Navbar = ({ showSideBar, setShowSideBar }: { showSideBar: boolean; setShowSideBar: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const Navbar = () => {
   const router = useRouter();
   const [search, setSearch] = useState<string>('');
   const handleSearch = (e: { preventDefault: () => void }) => {
@@ -53,9 +53,9 @@ const Navbar = ({ showSideBar, setShowSideBar }: { showSideBar: boolean; setShow
         <UserLogin />
       </div>
 
-      <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
+      {/* <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
         {showSideBar ? <ImCancelCircle /> : <AiOutlineMenu />}
-      </div>
+      </div> */}
     </div>
   );
 };

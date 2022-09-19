@@ -37,9 +37,9 @@ const Profile = ({ data }: IProps) => {
       ) : (
         <div className="flex flex-col gap-6 md:gap-2  bg-white w-full">
           <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
-            <div className="w-16 h-16 border-2 border-blue-600 rounded-full">
+            <div className=" rounded-full w-16 h-16 border-2 border-blue-600 ">
               <>
-                <Image src={user.image} alt="user" className=" rounded-full" height={120} width={120} layout="responsive" />
+                <Image src={user.image} alt="user" className=" rounded-full " height={120} width={120} />
               </>
             </div>
             <div className="">
