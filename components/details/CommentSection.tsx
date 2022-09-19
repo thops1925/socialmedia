@@ -4,6 +4,7 @@ import React from 'react';
 import { GoVerified } from 'react-icons/go';
 import useAuthStore from '../../store/authStore';
 import { userDetail } from '../../Type/userDetail';
+import SuggestedAccounts from '../navbar/SuggestedAccounts';
 import NoResults from '../video/NoResults';
 
 interface IProps {
@@ -39,7 +40,7 @@ const CommentSection = ({ comment, comments, setComment, addComment, isPostingCo
         {comments?.length ? (
           <div>
             {comments.map((comment, idx) => (
-              <>
+              <div key={idx}>
                 {allUsers.map(
                   (item) =>
                     item._id === (comment.postedBy._id || comment.postedBy._ref) && (
@@ -68,7 +69,7 @@ const CommentSection = ({ comment, comments, setComment, addComment, isPostingCo
                       </div>
                     )
                 )}
-              </>
+              </div>
             ))}
           </div>
         ) : (

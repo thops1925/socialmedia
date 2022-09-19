@@ -20,7 +20,7 @@ const Detail = ({ postDetails }: IProps) => {
   const [userAdd, setAddUser] = useState<userDetail | null>();
   const [comment, setComment] = useState<string>('');
   const [isPostingComment, setIsPostingComment] = useState<boolean>(false);
-  const [post, setPost] = useState<video>(postDetails);
+  const [post, setPost] = useState<video>('' as any);
   const router = useRouter();
   const videoEl = useRef<HTMLVideoElement>(null);
   const { userProfile } = useAuthStore();
@@ -39,7 +39,8 @@ const Detail = ({ postDetails }: IProps) => {
 
   useEffect(() => {
     setAddUser(userProfile);
-  }, [userProfile]);
+    setPost(postDetails);
+  }, [userProfile, postDetails]);
 
   const handleLike = async (like: boolean) => {
     if (userProfile) {

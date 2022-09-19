@@ -21,7 +21,14 @@ const UserLogin = () => {
 
   return (
     <>
-      {userAdd === null && <GoogleLogin onSuccess={(credentialResponse) => createOrGetUser(credentialResponse, setUser)} />}
+      {userAdd === null && (
+        <GoogleLogin
+          onSuccess={(credentialResponse) => createOrGetUser(credentialResponse, setUser)}
+          onError={() => {
+            console.log('Login Failed');
+          }}
+        />
+      )}
 
       {userAdd && (
         <div className="flex gap-5 md:gap-10">
