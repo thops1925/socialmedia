@@ -24,7 +24,20 @@ const Upload = () => {
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
-    const fileType = ['video/mp4', 'video/avi', 'video/mov', 'video/wmv', 'video/flv', 'video/mkv', 'video/webm', 'video/ogg'];
+    const fileType = [
+      'video/mp4',
+      'video/avi',
+      'video/mov',
+      'video/wmv',
+      'video/flv',
+      'video/mkv',
+      'video/webm',
+      'video/ogg',
+      'jpg',
+      'jpeg',
+      'png',
+      'gif',
+    ];
     if (selectedFile && fileType.includes(selectedFile.type)) {
       client.assets
         .upload('file', selectedFile, {
