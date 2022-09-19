@@ -16,7 +16,7 @@ const SuggestedAccounts = () => {
   return (
     <div className="xl:border-b-2 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Suggested Accounts</p>
-      <div className="flex flex-col items-start justify-center">
+      <div className="flex flex-col items-center lg:items-start justify-center">
         {allUsers.slice(0, 6).map((user) => (
           <Link href={`/profile/${user._id}`} key={user._id}>
             <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">

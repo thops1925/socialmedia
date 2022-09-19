@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import React from 'react';
 import { video } from '../../Type/videoProps';
 import { GoVerified } from 'react-icons/go';

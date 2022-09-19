@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { topics } from '../../utils/constants';
-import axios from 'axios';
 import UserLogin from './UserLogin';
 
 const Discover = () => {
@@ -15,7 +14,7 @@ const Discover = () => {
   return (
     <div className="xl:border-b-2 xl:border-gray-200 pb-6 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Popular Topics</p>
-      <div className="flex flex-wrap items-center justify-center ">
+      <div className="flex lg:flex-col flex-col items-center justify-center lg:justify-start lg:items-start">
         <div className="block xl:hidden">
           <UserLogin />
         </div>
@@ -32,11 +31,4 @@ const Discover = () => {
   );
 };
 
-// export const getStaticProps = async () => {
-//   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/topics`);
-//   return {
-//     props: {
-//       topics,
-//     },
-//   };
 export default Discover;

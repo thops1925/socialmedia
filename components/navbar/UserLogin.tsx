@@ -32,7 +32,7 @@ const UserLogin = () => {
       )}
 
       {userAdd && (
-        <div className="flex justify-center items-center gap-4 mt-4  flex-col xl:flex-row">
+        <div className="flex justify-center items-center gap-4 mt-4 p-3  flex-col xl:flex-row">
           {userAdd?.image && (
             <Link href={`/profile/${userAdd._id}`}>
               <div className="w-10 h-10 md:w-12 md:h-12">
