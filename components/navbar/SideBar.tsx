@@ -8,22 +8,23 @@ import { ImCancelCircle } from 'react-icons/im';
 import Discover from './Discover';
 import SuggestedAccounts from './SuggestedAccounts';
 import SideBarFooter from './SideBarFooter';
+import UserLogin from './UserLogin';
 
 const SideBar = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(true);
-  const normalLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-black rounded';
+  const normalLink = 'flex items-center mt-2 hover:bg-primary justify-center xl:justify-start cursor-pointer font-semibold text-black rounded';
   // const userProfile = false;
   return (
-    <div>
-      <div className="block xl:hidden m-2 ml-4 mt-3 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
+    <div className="flex flex-col items-center">
+      <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
         {showSideBar ? <ImCancelCircle /> : <AiOutlineMenu />}
       </div>
       {showSideBar && (
-        <div className="xl:w-400  xl:border-0 w-20 flex flex-col justify-start mb-10 p-3">
+        <div className="xl:w-400  xl:border-0 w-20 flex flex-col justify-start mb-10 md:justify-center">
           <div className="xl:border-b-2 border-gray-200 xl:pb-4">
             <Link href="/">
               <div className={normalLink}>
-                <p className="text-2xl">
+                <p className="text-2xl p-4">
                   <AiFillHome />
                 </p>
                 <span className="text-xl hidden xl:block">For You</span>
@@ -53,6 +54,7 @@ const SideBar = () => {
               </div>
             </div>
           )} */}
+
           <Discover />
           <SuggestedAccounts />
           <SideBarFooter />
