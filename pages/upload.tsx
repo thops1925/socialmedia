@@ -86,8 +86,8 @@ const Upload = () => {
   return (
     <>
       {userAdd && (
-        <div className="flex h-full w-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-slate-300 justify-center">
-          <div className="rounded-lg bg-white xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+        <div className="flex h-full w-full absolute left-0 top-[80px] mb-10 pt-10 lg:pt-20 bg-slate-300 justify-center">
+          <div className="rounded-lg bg-white xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center lg:p-14 pt-6">
             <div className="">
               <div>
                 <p className="text-2xl font-bold">Upload Video</p>
@@ -99,8 +99,8 @@ const Upload = () => {
                 ) : (
                   <div>
                     {videoAsset ? (
-                      <div>
-                        <video src={videoAsset.url} loop controls className="rounded-xl h-[460px] mt-16 bg-black"></video>
+                      <div className="w-[250px]">
+                        <video src={videoAsset.url} loop controls className="rounded-xl h-[460px]  bg-black "></video>
                       </div>
                     ) : (
                       <label className="cursor-pointer">
@@ -114,7 +114,7 @@ const Upload = () => {
                           <p className="text-gray-400 mt-2 text-center">Drop your video here</p>
                           <p className="bg-[#EA5666] text-center mt-10 rounded text-white text-md font-medium p-2 w-52 outline-none">Choose File</p>
                         </div>
-                        <input type="file" name="uploadVideo" className="h-0 w-0 " onChange={uploadVideo} />
+                        <input type="file" name="uploadVideo" className="w-[250px]" onChange={uploadVideo} />
                       </label>
                     )}
                   </div>
@@ -122,7 +122,7 @@ const Upload = () => {
                 {WrongFileType && <p className="text-red-500 text-center text-xl font-semibold mt-4 w-[250px]">Select Video</p>}
               </div>
             </div>
-            <div className="flex flex-col gap-3 pb-10 ">
+            <div className="flex flex-col gap-3 pb-10 w-[250px]">
               <label className="text-md font-medium"> Caption</label>
               <input
                 type="text"
