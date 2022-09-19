@@ -11,16 +11,15 @@ import SideBarFooter from './SideBarFooter';
 import UserLogin from './UserLogin';
 import useAuthStore from '../../store/authStore';
 
-const SideBar = () => {
+const SideBar = ({ showSideBar, setShowSideBar }: { showSideBar: boolean; setShowSideBar: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { userProfile } = useAuthStore();
-  const [showSideBar, setShowSideBar] = useState<boolean>(true);
   const normalLink = 'flex items-center mt-2 hover:bg-primary justify-center xl:justify-start cursor-pointer font-semibold text-black rounded';
   // const userProfile = false;
   return (
     <div className="flex flex-col items-center">
-      <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
+      {/* <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
         {showSideBar ? <ImCancelCircle /> : <AiOutlineMenu />}
-      </div>
+      </div> */}
       {showSideBar && (
         <div className="xl:w-400  xl:border-0 w-20 flex flex-col justify-start mb-10 md:justify-center">
           <div className="xl:border-b-2 border-gray-200 xl:pb-4">
@@ -33,30 +32,6 @@ const SideBar = () => {
               </div>
             </Link>
           </div>
-          {/* {!userProfile && (
-            <div className="px-2 py-4 hidden xl:block">
-              <p className="text-gray-500">Login to like and comment on video</p>
-              <div className="pr-4">
-                <GoogleLogin
-                  render={(renderProps) => (
-                    <button
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                      className="text-[#EA5666] bg-white text-lg border-[1px] border-[#EA5666] font-semibold px-6 py-3 rounded-md outline-none w-full mt-3 hover:text-white hover:bg-[#EA5666] cursor-pointer"
-                    >
-                      Log In
-                    </button>
-                  )}
-                  clientId=""
-                  buttonText="Login"
-                  onSuccess={() => {}}
-                  onFailure={() => {}}
-                  cookiePolicy={'single_host_origin'}
-                />
-              </div>
-            </div>
-          )} */}
-
           <Discover />
           <SuggestedAccounts />
           <SideBarFooter />

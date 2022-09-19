@@ -23,6 +23,7 @@ const UserLogin = () => {
     <>
       {userAdd === null && (
         <GoogleLogin
+          type="icon"
           onSuccess={(credentialResponse) => createOrGetUser(credentialResponse, setUser)}
           onError={() => {
             console.log('Login Failed');
@@ -31,7 +32,7 @@ const UserLogin = () => {
       )}
 
       {userAdd && (
-        <div className="flex gap-5 md:gap-10">
+        <div className="flex justify-center items-center gap-4 mt-4  flex-col">
           {userAdd?.image && (
             <Link href={`/profile/${userAdd._id}`}>
               <div className="w-10 h-10 md:w-12 md:h-12">
@@ -43,8 +44,8 @@ const UserLogin = () => {
           )}
           <Link href="upload">
             <button className=" md:px-4 text-md font-semibold flex items-center gap-2">
-              <AiOutlineUpload className="text-2xl" />
-              <span className="hidden md:block">Upload</span>
+              <AiOutlineUpload className="text-3xl" />
+              <span className="hidden sm:block"></span>
             </button>
           </Link>
           <button
@@ -55,7 +56,7 @@ const UserLogin = () => {
               router.push('/');
             }}
           >
-            <FiLogOut className="text-2xl" />
+            <FiLogOut className="text-3xl" />
           </button>
         </div>
       )}

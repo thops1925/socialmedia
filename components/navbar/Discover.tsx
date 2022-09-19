@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { topics } from '../../utils/constants';
 import axios from 'axios';
+import UserLogin from './UserLogin';
 
 const Discover = () => {
   const router = useRouter();
@@ -23,6 +24,9 @@ const Discover = () => {
             </div>
           </Link>
         ))}
+        <div className="block xl:hidden">
+          <UserLogin />
+        </div>
       </div>
     </div>
   );

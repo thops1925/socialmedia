@@ -12,16 +12,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => setSsr(false), []);
   if (ssr) null;
 
+  const [showSideBar, setShowSideBar] = useState<boolean>(false);
+
   return (
     <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_SANITY_GOOGLE_CLIENT_ID}`}>
       <div className="xl:w-[1200px] m-auto overflow-hidden h-[100vh]">
-        <Navbar />
+        <Navbar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className="flex gap-1 md:gap-20">
           <div className="mt-4 flex flex-col overflow-auto h-[88vh] videos flex-1 px-4">
             <Component {...pageProps} />
           </div>
           <div className="h-[94vh] overflow-hidden xl:hover:overflow-auto scrollbar-hide">
-            <SideBar />
+            <SideBar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
           </div>
         </div>
       </div>

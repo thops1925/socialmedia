@@ -5,8 +5,11 @@ import logo from '../../utils/mitch.png';
 import UserLogin from './UserLogin';
 import { CgSearchLoading } from 'react-icons/cg';
 import { useRouter } from 'next/router';
+import SideBar from './SideBar';
+import { ImCancelCircle } from 'react-icons/im';
+import { AiOutlineMenu } from 'react-icons/ai';
 
-const Navbar = () => {
+const Navbar = ({ showSideBar, setShowSideBar }: { showSideBar: boolean; setShowSideBar: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const router = useRouter();
   const [search, setSearch] = useState<string>('');
   const handleSearch = (e: { preventDefault: () => void }) => {
@@ -17,6 +20,7 @@ const Navbar = () => {
       router.push(`/search/${search}`);
     }
   };
+
   return (
     <div className="w-full flex justify-between items-center border-b-2 border-gray-200 py-1 px-4">
       <Link href="/">
@@ -45,7 +49,13 @@ const Navbar = () => {
           </button>
         </form>
       </div>
-      <UserLogin />
+      <div className="hidden xl:block">
+        <UserLogin />
+      </div>
+
+      <div className="block xl:hidden  justify-center mt-3 p-4 text-xl" onClick={() => setShowSideBar((prev) => !prev)}>
+        {showSideBar ? <ImCancelCircle /> : <AiOutlineMenu />}
+      </div>
     </div>
   );
 };
