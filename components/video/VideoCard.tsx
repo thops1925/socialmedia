@@ -3,6 +3,7 @@ import { video } from '../../Type/videoProps';
 import { GoVerified } from 'react-icons/go';
 import Link from 'next/link';
 import Image from 'next/image';
+import CommentSection from '../details/CommentSection';
 
 const VideoCard = ({ post }: { post: video }) => {
   return (
