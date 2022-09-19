@@ -77,7 +77,7 @@ const CommentSection = ({ comment, comments, setComment, addComment, isPostingCo
         )}
       </div>
       {userAdd && (
-        <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10 m-auto">
+        <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10 m-auto w-[250px]">
           <form onSubmit={addComment} className="flex gap-4">
             <input
               value={comment}
