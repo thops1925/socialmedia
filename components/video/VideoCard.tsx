@@ -31,14 +31,15 @@ const VideoCard = ({ post }: { post: video }) => {
         </div>
       </div>
 
-      <div className="flex justify-center item-center relative">
-        <div className="lg:w-[650px] ">
+      <div className="flex justify-center item-center ">
+        <div className="w-[650px] ">
           <Link href={`/detail/${post._id}`}>
             <video
+              className="w-full h-[400px] object-fit rounded-md cursor-pointer"
               loop
               controls
               muted
-              className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px] w-300 rounded-2xl  cursor-pointer bg-black m-auto "
+              // className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px]  rounded-2xl  cursor-pointer bg-black m-auto "
               src={post.video.asset.url}
             ></video>
           </Link>

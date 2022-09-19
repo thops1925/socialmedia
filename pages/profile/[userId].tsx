@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { GoVerified } from 'react-icons/go';
 import VideoCard from '../../components/video/VideoCard';
 import NoResults from '../../components/video/NoResults';
+import UserLogin from '../../components/navbar/UserLogin';
 
 interface IProps {
   data: {
@@ -33,7 +34,7 @@ const Profile = ({ data }: IProps) => {
   return (
     <>
       {!user ? (
-        <NoResults text={'No Video'} />
+        <NoResults text={`Log In `} />
       ) : (
         <div className="flex flex-col gap-6 md:gap-2  bg-white w-full">
           <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">

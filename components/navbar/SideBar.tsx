@@ -21,7 +21,7 @@ const SideBar = () => {
     <div className="flex flex-col items-center">
       <div className="xl:w-400  xl:border-0 w-15 flex flex-col justify-start mb-10 md:justify-center  ">
         <div className="xl:border-b-2 border-gray-200 xl:pb-4">
-          <Link href={`/profile/${post?._id || router.push('/')}`}>
+          <Link href={`/profile/${post?._id}`}>
             <div className={normalLink}>
               <p className="text-2xl p-4">
                 <AiFillHome />
