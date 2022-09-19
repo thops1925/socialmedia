@@ -16,6 +16,9 @@ const Discover = () => {
     <div className="xl:border-b-2 xl:border-gray-200 pb-6 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">Popular Topics</p>
       <div className="flex flex-wrap items-center justify-center ">
+        <div className="block xl:hidden">
+          <UserLogin />
+        </div>
         {topics.map((item) => (
           <Link href={`/?topic=${item.name}`} key={item.name}>
             <div className={topic === item.name ? activeTopicStyle : topicStyle}>
@@ -24,9 +27,6 @@ const Discover = () => {
             </div>
           </Link>
         ))}
-        <div className="block xl:hidden">
-          <UserLogin />
-        </div>
       </div>
     </div>
   );
