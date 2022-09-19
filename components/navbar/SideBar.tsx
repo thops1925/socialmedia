@@ -5,10 +5,11 @@ import Discover from './Discover';
 import SuggestedAccounts from './SuggestedAccounts';
 import SideBarFooter from './SideBarFooter';
 import useAuthStore from '../../store/authStore';
+import { useRouter } from 'next/router';
 
 const SideBar = () => {
   const { userProfile } = useAuthStore();
-
+  const router = useRouter();
   const [post, setPost] = useState(userProfile);
 
   useEffect(() => {
@@ -20,12 +21,12 @@ const SideBar = () => {
     <div className="flex flex-col items-center">
       <div className="xl:w-400  xl:border-0 w-15 flex flex-col justify-start mb-10 md:justify-center  ">
         <div className="xl:border-b-2 border-gray-200 xl:pb-4">
-          <Link href={`/profile/${post?._id}`}>
+          <Link href={`/profile/${post?._id || router.push('/')}`}>
             <div className={normalLink}>
               <p className="text-2xl p-4">
                 <AiFillHome />
               </p>
-              <span className="text-xl hidden xl:block">{post?.userName}</span>
+              <span className="text-xl hidden xl:block">{post?.userName || 'Welcome'}</span>
             </div>
           </Link>
         </div>

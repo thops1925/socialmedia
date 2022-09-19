@@ -32,7 +32,7 @@ const VideoCard = ({ post }: { post: video }) => {
       </div>
 
       <div className="flex justify-center item-center relative">
-        <div className="w-[350px]">
+        <div className="lg:w-[650px] ">
           <Link href={`/detail/${post._id}`}>
             <video
               loop
