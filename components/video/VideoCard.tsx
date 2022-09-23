@@ -19,7 +19,7 @@ const VideoCard = ({ post }: { post: video }) => {
           </div>
           <div>
             <Link href={`/profile/${post.postedBy._id}`}>
-              <div className="flex flex-col gap-2 p-2 ">
+              <div className="flex flex-col gap-2 ">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}
                   <GoVerified className="text-[#EA5666] text-md" />

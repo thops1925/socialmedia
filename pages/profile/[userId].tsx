@@ -37,14 +37,14 @@ const Profile = ({ data }: IProps) => {
         <NoResults text={`Log In `} />
       ) : (
         <div className="flex flex-col gap-6 md:gap-2  bg-white w-full">
-          <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer">
-            <div className=" rounded-full w-16 h-16 border-2 border-blue-600 ">
+          <div className="flex gap-3 p-2 font-semibold rounded cursor-pointer ">
+            <div className="  w-16 h-16 ">
               <>
-                <Image src={user.image} alt="user" className=" rounded-full " height={120} width={120} />
+                <Image src={user.image} alt="user" className=" rounded-full border-2 border-blue-600" height={120} width={120} />
               </>
             </div>
             <div className="">
-              <p className="text-2xl tracking-wider flex justify-center  gap-1 items-center text-md font-bold text-primary lowercase ">
+              <p className="tracking-wider flex justify-center gap-1 items-center text-md font-bold text-primary lowercase ">
                 {user.userName.replaceAll(' ', '')}
                 <GoVerified className="text-blue-400" />
               </p>
