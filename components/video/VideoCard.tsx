@@ -10,7 +10,7 @@ const VideoCard = ({ post }: { post: video }) => {
     <div className="flex flex-col border-b-2 border-gray-200 border-2 rounded-md w-full">
       <div>
         <div className="flex gap-3 p-2 border-b-2 mb-2 cursor-pointer font-semibold rounded">
-          <div className="md:w-16 md:16 w-16 h-16 border-2 justify-center border-blue-600 rounded-full">
+          <div className="md:w-16 md:16 h-16 w-16 border-2 justify-center border-blue-600 rounded-full">
             <Link href={`/profile/${post._id}`}>
               <>
                 <Image layout="responsive" alt="profile" width={120} height={120} className="rounded-full" src={post.postedBy?.image} />
@@ -19,7 +19,7 @@ const VideoCard = ({ post }: { post: video }) => {
           </div>
           <div>
             <Link href={`/profile/${post.postedBy._id}`}>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 p-2 ">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}
                   <GoVerified className="text-[#EA5666] text-md" />
