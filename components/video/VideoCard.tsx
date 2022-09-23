@@ -7,7 +7,7 @@ import CommentSection from '../details/CommentSection';
 
 const VideoCard = ({ post }: { post: video }) => {
   return (
-    <div className="flex flex-col border-b-2 border-gray-200 border-2 rounded-md ">
+    <div className="flex flex-col border-b-2 border-gray-200 border-2 rounded-md w-full">
       <div>
         <div className="flex gap-3 p-2 border-b-2 mb-2 cursor-pointer font-semibold rounded">
           <div className="md:w-16 md:16 w-16 h-16 border-2 justify-center border-blue-600 rounded-full">
@@ -35,11 +35,11 @@ const VideoCard = ({ post }: { post: video }) => {
         <div className="w-[650px] ">
           <Link href={`/detail/${post._id}`}>
             <video
-              className="w-full h-[400px] object-fit rounded-md cursor-pointer"
+              // className="w-full h-[400px] object-fit rounded-md cursor-pointer"
               loop
               controls
               muted
-              // className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px]  rounded-2xl  cursor-pointer bg-black m-auto "
+              className="lg:w-[700px] h-[400px] md:h-[500px] lg:h-[630px]  rounded-2xl  cursor-pointer bg-black m-auto "
               src={post.video.asset.url}
             ></video>
           </Link>
